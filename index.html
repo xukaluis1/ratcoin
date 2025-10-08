@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RatsCoin — The Golden Meme</title>
   <link rel="icon" href="assets/ratscoin-mascot.png">
-  <meta name="description" content="RatsCoin — The Golden Meme." />
+  <meta name="description" content="RatsCoin — The Golden Meme."/>
   <style>
     :root{
       --bg:#08070a;
@@ -78,6 +78,10 @@
     .legend{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
     .legend .item{display:flex; gap:8px; align-items:center}
     .dot{width:12px;height:12px;border-radius:4px}
+    /*king*/
+    .kingwidth{
+      width:260px;
+    }
     /* gallery */
     .gallery-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:12px}
     .gallery-item{background:rgba(255,255,255,0.02); padding:8px; border-radius:10px; display:flex; align-items:center; justify-content:center; height:120px; overflow:hidden; cursor:pointer; transition: transform 300ms ease, box-shadow 300ms ease;}
@@ -104,6 +108,171 @@
       .gallery-item{height:100px}
       .steps{grid-template-columns:1fr}
     }
+
+    @media (max-width:880px) {
+  .split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+  }
+
+  .hero-left {
+    order: 2;
+  }
+
+  .mascot-wrap {
+    order: 1;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 12px auto;
+  }
+
+  .cta {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cta .btn,
+  .cta .ghost {
+    width: 100%;
+    text-align: center;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  .gallery-item {
+    height: 90px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.links {
+    display: none;
+  }
+
+  /* Hamburger for mobile */
+  .hamburger {
+    display: block;
+  }
+
+  /* Show mobile menu when active */
+  .nav.open .links {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,215,77,0.1);
+  }
+
+  .nav.open .links a {
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width:880px) {
+  .split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Hero section */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+  }
+  .hero-left { order: 2; }
+  .mascot-wrap {
+    order: 1;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 12px auto;
+  }
+  .cta {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .cta .btn, .cta .ghost {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Tokenomics (Ratonomics) */
+  #tokenomics .split {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #tokenomics .card {
+    width: 100%;
+  }
+  #tokenomics .donut {
+    margin: 16px auto;
+    width: 180px;
+    height: 180px;
+  }
+  #tokenomics .legend {
+    justify-content: center;
+  }
+
+  /* Gallery */
+  .gallery-item {
+    height: 90px;
+  }
+
+  /* Steps */
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* Nav / hamburger */
+  nav.links { display: none; }
+  .hamburger { display: block; }
+
+  .nav.open .links {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,215,77,0.1);
+  }
+  .nav.open .links a {
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+  }
+  .kingwidth{
+    width: auto;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -169,7 +338,7 @@
             <button class="btn" onclick="document.getElementById('tokenomics').scrollIntoView({behavior:'smooth'})">See Ratonomics</button>
           </div>
         </div>
-        <div style="width:260px">
+        <div class="kingwidth">
           <div style="padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,213,77,0.03), rgba(255,213,77,0.01)); border:1px solid rgba(255,213,77,0.05)">
             <img src="assets/gallery/king_rat.png" alt="king rat" style="width:100%; border-radius:10px; display:block; transform:translateY(-4px)" />
             <div style="text-align:center; margin-top:8px; color:var(--muted)"><strong>RatsCoin • King of Memes</strong></div>
@@ -184,9 +353,7 @@
         <div class="card">
           <h3>Ratonomics 💰</h3>
           <div style="display:flex; align-items:center; gap:8px;">
-            <p class="muted" id="contract" style="margin:0;">
-              Contract: <strong style="color:var(--gold)">0xD3c158A4b442f8092887004aa839B53E6880110f</strong>
-            </p>
+            <p class="muted" id="contract" style="margin:0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">Contract: <strong style="color:var(--gold)">0xD3c158A4b442f8092887004aa839B53E6880110f</strong></p>
             <button id="copyBtn" class="ghost" style="padding:4px 10px;">Copy</button>
           </div>
           <p class="muted">Total Supply: <strong style="color:var(--gold)">690,000,000,000 RATS</strong></p>
@@ -339,6 +506,14 @@
       setTimeout(()=> btn.textContent = 'Copy', 1200);
     });
 
+    // responsive hamburger menu
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    const navlinks = document.getElementById('navlinks');
+
+    hamburger.addEventListener('click', ()=>{
+      nav.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
