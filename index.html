@@ -183,6 +183,12 @@
       <div class="split">
         <div class="card">
           <h3>Ratonomics 💰</h3>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <p class="muted" id="contract" style="margin:0;">
+              Contract: <strong style="color:var(--gold)">0xD3c158A4b442f8092887004aa839B53E6880110f</strong>
+            </p>
+            <button id="copyBtn" class="ghost" style="padding:4px 10px;">Copy</button>
+          </div>
           <p class="muted">Total Supply: <strong style="color:var(--gold)">690,000,000,000 RATS</strong></p>
           <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:8px">
             <div class="donut" id="donut"></div>
@@ -323,6 +329,15 @@
       mascot.style.transform = `translate3d(0,0,0) rotateX(${ -dy*6 }deg) rotateY(${ dx*6 }deg)`;
     });
     document.addEventListener('mouseleave', ()=> { mascot.style.transform=''; });
+
+    //copy
+    document.getElementById('copyBtn').addEventListener('click', ()=>{
+      const address = '0xD3c158A4b442f8092887004aa839B53E6880110f';
+      navigator.clipboard.writeText(address);
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied!';
+      setTimeout(()=> btn.textContent = 'Copy', 1200);
+    });
 
   </script>
 </body>
