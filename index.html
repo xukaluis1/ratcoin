@@ -271,6 +271,78 @@
     width: auto;
   }
 }
+/* ====== FOOTER STYLE ====== */
+.rats-footer {
+  text-align: center;
+  padding: 25px 10px 30px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.rats-footer-text {
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.rats-risk {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.rats-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.rats-dextools-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rats-dextools-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.rats-dextools-logo:hover {
+  opacity: 1;
+}
+
+.rats-email {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 15px;
+  transition: text-decoration 0.2s;
+}
+
+.rats-email:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 600px) {
+  .rats-footer {
+    padding: 20px 8px 25px;
+  }
+  .rats-footer-text {
+    font-size: 14px;
+  }
+  .rats-risk {
+    font-size: 13.5px;
+  }
+  .rats-email {
+    font-size: 14.5px;
+  }
+}
 
 
   </style>
@@ -406,16 +478,27 @@
         </div>
       </div>
       <div style="margin-top:12px; display:flex; gap:10px; justify-content: center;">
-       <button class="btn" onclick="window.open('https://pancakeswap.finance/swap?outputCurrency=0x79A1F3c98E3AB09ee9a11F9c2527813Ac6BEBEB7', '_blank')">Buy on Pancake Swap</button>
-        <button class="ghost">View Chart</button>
+       <button class="btn" onclick="window.open('https://pancakeswap.finance/swap?outputCurrency=0xD3c158A4b442f8092887004aa839B53E6880110f&chain=bsc', '_blank')">Buy on Pancake Swap</button>
+        <button class="ghost" onclick="window.open('https://www.dextools.io/app/en/token/ratscoinbnb?t=1760012502796', '_blank')">View Chart</button>
       </div>
     </section>
 
-    <footer>
-      © 2025 RatsCoin • No Rats Were Harmed 🐭
-    </footer>
-  </div>
+    <!-- ====== FOOTER ====== -->
+    <footer class="rats-footer">
+      <p class="rats-risk">
+        ⚠️ All meme projects carry a level of risk; please manage your money carefully.
+      </p>
 
+      <div class="rats-footer-links">
+        <a href="https://www.dextools.io/app/en/token/ratscoinbnb?t=1760012502796" target="_blank" class="rats-dextools-link">
+          <img src="assets/dextools-logo.svg" alt="DEXTools" class="rats-dextools-logo">
+        </a>
+        <a href="mailto:Ratscoinbnb@gmail.com" class="rats-email">Ratscoinbnb@gmail.com</a>
+      </div>
+    </footer>
+    <div style="margin-top:18px; text-align:center; color:var(--muted); font-size:13px">
+    © 2025 RatsCoin • No Rats Were Harmed 🐭
+  </div>
   <script>
     // coin rain generator (mix of coin drops)
     const coinColors = ['#ffd54d','#ffb84d','#ff9f4d'];
@@ -478,7 +561,7 @@
 
     // small interactions
     document.getElementById('buyNow').addEventListener('click', ()=>{
-      window.open('https://www.pinksale.finance/launchpad/bsc/0x79A1F3c98E3AB09ee9a11F9c2527813Ac6BEBEB7', '_blank');
+      window.open('https://pancakeswap.finance/swap?outputCurrency=0xD3c158A4b442f8092887004aa839B53E6880110f&chain=bsc', '_blank');
     });
     document.getElementById('joinPack').addEventListener('click', ()=>{
       window.open('https://t.me/ratscoinbnb', '_blank');
